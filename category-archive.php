@@ -12,7 +12,8 @@ require_once('includes/connection.php');
         <div id="main" class="s-content__main large-8 column">
 
             <?php
-            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage FROM tblposts";
+            $catId = $_GET['id'];
+            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage FROM tblposts WHERE CategoryId = $catId";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) { ?>
