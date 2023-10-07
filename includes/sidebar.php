@@ -9,7 +9,7 @@
             if ($result->num_rows > 0) {
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
-                    echo '<li><a href="/category-archive.php?id='.$row["id"].'" title="">' . $row["CategoryName"] . '</a></li>';
+                    echo '<li><a href="/category-archive.php?id=' . $row["id"] . '" title="">' . $row["CategoryName"] . '</a></li>';
                 }
             }
             ?>
@@ -20,9 +20,16 @@
         <h3 class="h6">Popular Post.</h3>
 
         <ul class="link-list">
-            <li><a href="#">Sint cillum consectetur voluptate.</a></li>
-            <li><a href="#">Lorem ipsum Ullamco commodo.</a></li>
-            <li><a href="#">Fugiat minim eiusmod do.</a></li>
+            <?php
+            $sql = "SELECT id, PostTitle FROM tblposts ORDER BY likeCount DESC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo '<li><a href="/single.php?id=' . $row["id"] . '">' . $row["PostTitle"] . '</a></li>';
+                }
+            }
+            ?>
         </ul>
     </div>
 

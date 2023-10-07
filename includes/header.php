@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    $loginText = "Log Out";
+    $loginAction = "logout";
+}else{
+    $loginText = "Login";
+    $loginAction = "login";
+}
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -18,7 +28,8 @@
     ================================================== -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
@@ -54,8 +65,8 @@
 
                 <ul class="s-header__nav">
                     <li class="current"><a href="/">Home</a></li>
-                    <li><a href="demo.html">Preference</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li><a href="preference.php">Preference</a></li>
+                    <li><a href="login.php?action=<?= $loginAction; ?>"><?= $loginText; ?></a></li>
                 </ul> <!-- end #nav -->
 
             </div>

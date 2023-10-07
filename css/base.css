@@ -1287,3 +1287,14 @@ textarea {
 .nav-row {
     justify-content: flex-end;
 }
+
+.like_btn {
+    background: none !important;
+    border: none !important;
+    color: inherit;
+    padding: 0 5px;
+}
+
+.like_btn:hover {
+    color: green;
+}

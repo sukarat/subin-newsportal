@@ -1,7 +1,29 @@
 <?php
 // Start the session
 session_start();
+/**
+ * Checks if the url contains query string named action and the value of action in logout
+ * If the action is present and the value is logout then unset the username from session
+ * And redirect back to homepage
+ */
+if (isset($_GET['action']) && $_GET['action'] === "logout") {
+    unset($_SESSION['username']);
+    header("Location: index.php");
+    exit();
+}
+/**
+ * Checks if the session contains username and if yes then the user is already loggedIn
+ * So redirect back to homepage
+ */
+if (isset($_SESSION['username'])){
+    header("Location: index.php");
+    exit();
+}
+
 require_once('includes/connection.php');
+/**
+ * If Signup Button is clicked get the user details and save to database
+ */
 if (isset($_POST['register_btn'])) {
 
     $username = $_POST['username'];
@@ -16,17 +38,27 @@ if (isset($_POST['register_btn'])) {
         $_SESSION["error"] = 'Error: ' . $e->getMessage();
     }
 }
+
+/**
+ * If Login Button is clicked get the user details check in the database
+ * If the details match and set the username in session and redirect back to homepage
+ */
 if (isset($_POST['login_btn'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $sql = "SELECT AdminUsername, AdminPassword FROM tbluser WHERE AdminUsername = '$username' AND AdminPassword = '$password'";
+    $sql = "SELECT id, AdminUsername FROM tbluser WHERE AdminUsername = '$username' AND AdminPassword = '$password'";
     try {
         $result = $conn->query($sql);
-        if ($result->num_rows > 0){
-            $_SESSION["success"] = 'Success: username and password match !';
+        if ($result->num_rows === 1){
+            $row = mysqli_fetch_assoc($result);
+
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['AdminUsername'];
+            header("Location: index.php");
+            exit();
         }else{
-            $_SESSION["error"] = 'Error: username not found !';
+            $_SESSION["error"] = 'Error: username or password did not match!';
         }
     } catch (Exception $e) {
         // Set session variables
@@ -126,11 +158,11 @@ if (isset($_POST['login_btn'])) {
                 <?php
                 if (isset($_SESSION['error'])) {
                     echo '<p style="text-align:center;color:red;">' . $_SESSION['error'] . '</p>';
-                    session_unset();
+                    unset($_SESSION['error']);
                 }
                 if (isset($_SESSION['success'])) {
                     echo '<p style="text-align:center;color:green;">' . $_SESSION['success'] . '</p>';
-                    session_unset();
+                    unset($_SESSION['success']);
                 }
                 ?>
                 <label for="uname"><b>Username</b></label>
