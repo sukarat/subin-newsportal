@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 08, 2023 at 02:38 AM
+-- Generation Time: Oct 08, 2023 at 03:15 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.1.13
 
@@ -69,40 +69,15 @@ CREATE TABLE IF NOT EXISTS `tblcomments` (
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `postId` (`postId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblcomments`
 --
 
 INSERT INTO `tblcomments` (`id`, `postId`, `name`, `email`, `comment`, `postingDate`, `status`) VALUES
-(1, 4, 'Mayuri K', 'mauyu@gmail.com', 'hi', '2022-12-16 11:20:07', 1),
-(2, 2, 'Test', 'test@gmai.com', 'jpt', '2023-10-02 08:31:45', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblpages`
---
-
-DROP TABLE IF EXISTS `tblpages`;
-CREATE TABLE IF NOT EXISTS `tblpages` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `PageName` varchar(200) DEFAULT NULL,
-  `PageTitle` mediumtext,
-  `Description` longtext,
-  `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tblpages`
---
-
-INSERT INTO `tblpages` (`id`, `PageName`, `PageTitle`, `Description`, `PostingDate`, `UpdationDate`) VALUES
-(1, 'aboutus', 'About News Portal', '<p style=\"text-align: justify; \">Mayuri K. is an experienced freelance web developer who specializes in technologies like PHP, Laravel, and Python. She has been working with these technologies for over 6 years and has a proven track record of delivering successful projects. Mayuri is well-versed in the latest advancements in web development and can handle any project from simple static websites to complex web applications. She has a passion for creating high-quality products that are tailored to her clients needs. With her expertise, she can help you create a website or application that is both secure and user-friendly.\r\n</p><p style=\"text-align: justify;\"><b>\r\nFor students or anyone else who needs program or source code for thesis writing or any Professional Software Development, Website Development, Academic Project Development at affordable cost contact me at <a href=\"http://mayuri.infospace@gmail.com\">mayuri.infospace@gmail.com</a>\r\n</b></p><p style=\"text-align: justify;\"><br></p><p style=\"text-align: justify;\"><b>\r\nNote: </b>Source Code is only available for educational purposes, plz dont use it for commercial purposes without the permission of the original author.</p>', '2021-06-29 18:30:00', '2023-01-25 18:00:11'),
-(2, 'contactus', 'Contact Details', '<p><br></p><p><b>Address :&nbsp; </b>Maharashtra</p><p><b>Phone Number : </b>+91 -9090909090</p><p><b>Email -id : </b>mayuri.infospace@gmail.com</p>', '2021-06-29 18:30:00', '2022-12-13 16:50:24');
+(3, 4, 'Sukarat Luitel', 'pabanlucky@gmail.com', 'this is a comment', '2023-10-08 02:58:21', 1),
+(4, 4, 'Pabati Ghimire', 'paru.ghimire118@gmail.com', 'This is another comment', '2023-10-08 02:59:57', 1);
 
 -- --------------------------------------------------------
 
@@ -143,30 +118,6 @@ INSERT INTO `tblposts` (`id`, `PostTitle`, `CategoryId`, `SubCategoryId`, `PostD
 (4, 'Lionel Messi to Kylian Mbappe: Race to FIFA World Cup 2022 Golden Boot, in PICS test', 5, 5, '<p>The FIFA World Cup 2022 final are set with Lionel Messis Argentina set to take on Kylian Mbappe France at the Lusail Stadium on Sunday (December 18). Messi and Mbappe, teammates at PSG, are also in the race to win the FIFA World Cup 2022 Golden Boot award as well. In these collection of pictures, we take a look at players in race to win Golden Boot award this year.</p><p>The FIFA World Cup 2022 final are set with Lionel Messis Argentina set to take on Kylian Mbappe France at the Lusail Stadium on Sunday (December 18). Messi and Mbappe, teammates at PSG, are also in the race to win the FIFA World Cup 2022 Golden Boot award as well. In these collection of pictures, we take a look at players in race to win Golden Boot award this year.</p><p>The FIFA World Cup 2022 final are set with Lionel Messis Argentina set to take on Kylian Mbappe France at the Lusail Stadium on Sunday (December 18). Messi and Mbappe, teammates at PSG, are also in the race to win the FIFA World Cup 2022 Golden Boot award as well. In these collection of pictures, we take a look at players in race to win Golden Boot award this year.</p><p>The FIFA World Cup 2022 final are set with Lionel Messis Argentina set to take on Kylian Mbappe France at the Lusail Stadium on Sunday (December 18). Messi and Mbappe, teammates at PSG, are also in the race to win the FIFA World Cup 2022 Golden Boot award as well. In these collection of pictures, we take a look at players in race to win Golden Boot award this year.</p><p><br></p>', '2022-12-15 18:22:51', '2023-10-08 02:19:09', 1, 'Lionel-Messi-to-Kylian-Mbappe:-Race-to-FIFA-World-Cup-2022-Golden-Boot,-in-PICS-test', '4106106a3b2ba2ec88bf3521b412dcbb.jpg', 5, 'admin', ''),
 (5, 'Twitter suspends journalists from NYT, Washington Post and others covering Elon Musk: Report', 2, 11, 'The Washington Posts Drew Harwell, alongside other banned reporters, was able to participate in a Twitter Spaces audio session while under suspension, exposing a loophole in Twitter’s enforcement.\r\n\r\n\r\nTwitter Inc. suspended the accounts of upstart rival service Mastodon and several prominent journalists covering the social network’s billionaire owner Elon Musk.\r\n\r\nLate Thursday, reporters from publications including the Washington Post, the New York Times, Mashable and CNN were listed as blocked and their tweets were no longer visible, with the companys standard notice saying it suspends accounts that violate the Twitter rules.\r\n\r\nAlso affected was sports and political commentator Keith Olbermann. Musk said Olbermann will be subject to a 7-day suspension for doxxing. In a separate tweet, he alleged the suspended journalists had posted his exact real-time location, describing the information as basically assassination coordinates.', '2022-12-16 11:34:26', '2023-10-04 09:08:58', 1, 'Twitter-suspends-journalists-from-NYT,-Washington-Post-and-others-covering-Elon-Musk:-Report', 'd7c9faa1953eebd19b2ae47f7f201858.jpg', 11, 'admin', 'admin'),
 (26, 'Ibrahimovic aims dig at players who joined Saudi Pro League', 5, NULL, 'Zlatan Ibrahimovic has taken aim at players who joined the Saudi Pro League last summer, questioning the motivations behind their moves to the Gulf state.\r\n\r\nCristiano Ronaldo\'s move to Al Nassr last January was the catalyst for a number of the game\'s biggest stars to join the league on huge contracts in recent months, including Neymar, Sadio Mané and N\'Golo Kanté.\r\n\r\n- Stream on ESPN+: LaLiga, Bundesliga, more (U.S.)\r\n- Saudi Arabia transfer tracker: Done deals, players linked\r\n\r\nIbrahimovic revealed he had offers from Saudi Arabia and China at the end of his career -- the Sweden great retired in June -- but rejected the advances over considerations of legacy.\r\n\r\n\"I had an offer also from China. I had an offer also from Saudi, but the situation is, what do you want?\" Ibrahimovic told Piers Morgan on the Uncensored show. \"What objectives do you have?\r\n\r\n\"I said before we started, like certain players need to finish their career on the big stage because that is the high end of your career.', '2023-10-07 17:43:10', '2023-10-08 01:56:45', 0, 'Ibrahimovic-aims-dig-at-players-who-joined-Saudi-Pro-League', '134166cbbb3aa78cb0865b8c0dff70e2.jpg', 1, 'subin', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblpreference`
---
-
-DROP TABLE IF EXISTS `tblpreference`;
-CREATE TABLE IF NOT EXISTS `tblpreference` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `category_id` int NOT NULL,
-  `user_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `tblpreference`
---
-
-INSERT INTO `tblpreference` (`id`, `category_id`, `user_id`) VALUES
-(1, 2, 3),
-(2, 1, 3);
 
 -- --------------------------------------------------------
 
