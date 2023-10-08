@@ -13,7 +13,7 @@ require_once('includes/connection.php');
 
             <?php
             $catId = $_GET['id'];
-            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage FROM tblposts WHERE CategoryId = $catId";
+            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage FROM tblposts WHERE CategoryId = $catId ORDER BY id DESC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) { ?>

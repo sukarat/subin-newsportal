@@ -14,10 +14,7 @@ if (isset($_POST['like_btn'])) {
 
     try {
         $result = $conn->query($sql);
-        $_SESSION["success"] = 'Success: like increased !';
     } catch (Exception $e) {
-        // Set session variables
-        $_SESSION["error"] = 'Error: ' . $e->getMessage();
     }
 }
 ?>
@@ -31,7 +28,7 @@ if (isset($_POST['like_btn'])) {
         <div id="main" class="s-content__main large-8 column">
 
             <?php
-            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage, likeCount FROM tblposts";
+            $sql = "SELECT id, PostTitle, PostingDate, PostDetails, PostImage, likeCount FROM tblposts ORDER BY id DESC";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) { ?>

@@ -55,7 +55,7 @@ if (isset($_POST['login_btn'])) {
 
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['AdminUsername'];
-            header("Location: index.php");
+            header("Location: admin/index.php");
             exit();
         }else{
             $_SESSION["error"] = 'Error: username or password did not match!';
