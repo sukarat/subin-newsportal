@@ -53,7 +53,7 @@ if (isset($_SESSION['username'])) {
 
             <div class="s-header__content column">
                 <h1 class="s-header__logotext">
-                    <a href="/" title="">News Portal.</a>
+                    <a href="index.php" title="">News Portal.</a>
                 </h1>
             </div>
 
@@ -64,7 +64,10 @@ if (isset($_SESSION['username'])) {
             <div class="row nav-row">
 
                 <ul class="s-header__nav">
-                    <li class="current"><a href="/">Home</a></li>
+                    <li class=""><a href="index.php">Home</a></li>
+                    <?php if ( isset($_SESSION['id']))  : ?>
+                        <li class=""><a href="user-dashboard.php">User Dashboard</a></li>
+                    <?php endif; ?>
                     <li><a href="login.php?action=<?= $loginAction; ?>"><?= $loginText; ?></a></li>
                 </ul> <!-- end #nav -->
 

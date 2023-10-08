@@ -7,6 +7,7 @@ session_start();
  * And redirect back to homepage
  */
 if (isset($_GET['action']) && $_GET['action'] === "logout") {
+    unset($_SESSION['id']);
     unset($_SESSION['username']);
     header("Location: index.php");
     exit();
@@ -58,7 +59,9 @@ if (isset($_POST['login_btn'])) {
                 header("Location: admin/index.php");
                 exit();
             }
-            header("Location: index.php");
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['AdminUsername'];
+            header("Location: user-dashboard.php");
             exit();
         }else{
             $_SESSION["error"] = 'Error: username or password did not match!';
@@ -175,9 +178,8 @@ if (isset($_POST['login_btn'])) {
                 <input type="password" placeholder="Enter Password" name="password" required>
 
                 <button type="submit" name="login_btn">Login</button>
-                <!-- <p class="or" style="text-align:center;">For new user, provide username and password then click on sign
-                    up below!</p>
-                <button type="submit" name="register_btn">Sign Up</button> -->
+                <p class="or" style="text-align:center;">For new user, provide username and password then click on sign up below!</p>
+                <button type="submit" name="register_btn">Sign Up</button>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">

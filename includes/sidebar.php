@@ -1,5 +1,17 @@
 <div id="sidebar" class="s-content__sidebar large-4 column">
 
+
+    <?php if ( isset($_SESSION['id']))  : ?>
+    <div class="widget widget_popular">
+        <h3 class="h6">Preferred Posts</h3>
+
+        <ul class="link-list">
+            <?php
+                require_once('recommend.php');
+            ?>
+        </ul>
+    </div>
+    <?php endif; ?>
     <div class="widget widget--categories">
         <h3 class="h6">Categories.</h3>
         <ul>
