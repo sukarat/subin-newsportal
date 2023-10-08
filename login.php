@@ -47,15 +47,18 @@ if (isset($_POST['login_btn'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $sql = "SELECT id, AdminUsername FROM tbluser WHERE AdminUsername = '$username' AND AdminPassword = '$password'";
+    $sql = "SELECT id, AdminUsername, userType FROM tbluser WHERE AdminUsername = '$username' AND AdminPassword = '$password'";
     try {
         $result = $conn->query($sql);
         if ($result->num_rows === 1){
             $row = mysqli_fetch_assoc($result);
-
-            $_SESSION['id'] = $row['id'];
-            $_SESSION['username'] = $row['AdminUsername'];
-            header("Location: admin/index.php");
+            if( $row['userType'] == 1 ){
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['username'] = $row['AdminUsername'];
+                header("Location: admin/index.php");
+                exit();
+            }
+            header("Location: index.php");
             exit();
         }else{
             $_SESSION["error"] = 'Error: username or password did not match!';
@@ -172,9 +175,9 @@ if (isset($_POST['login_btn'])) {
                 <input type="password" placeholder="Enter Password" name="password" required>
 
                 <button type="submit" name="login_btn">Login</button>
-                <p class="or" style="text-align:center;">For new user, provide username and password then click on sign
+                <!-- <p class="or" style="text-align:center;">For new user, provide username and password then click on sign
                     up below!</p>
-                <button type="submit" name="register_btn">Sign Up</button>
+                <button type="submit" name="register_btn">Sign Up</button> -->
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
