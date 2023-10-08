@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 08, 2023 at 03:15 AM
+-- Generation Time: Oct 08, 2023 at 07:48 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.1.13
 
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS `tblcategory` (
 --
 
 INSERT INTO `tblcategory` (`id`, `CategoryName`, `Description`, `PostingDate`, `UpdationDate`, `Is_Active`) VALUES
-(1, 'ENTERTAINMENT', 'ENTERTAINMENT', '2022-12-13 17:26:13', '2023-10-08 02:34:03', 1),
-(2, 'TECHNOLOGY', 'TECHNOLOGY', '2022-12-13 17:36:33', NULL, 1),
-(3, 'LIFESTYLE', 'LIFESTYLE', '2022-12-13 17:36:50', NULL, 1),
-(4, 'POLITICAL', 'POLITICAL', '2022-12-13 17:37:23', NULL, 1),
-(5, 'SPORTS', 'SPORTS', '2022-12-13 17:37:48', NULL, 1),
+(1, 'ENTERTAINMENT', 'ENTERTAINMENT', '2023-10-08 17:26:13', '2023-10-08 02:34:03', 1),
+(2, 'TECHNOLOGY', 'TECHNOLOGY', '2023-10-08 17:36:33', NULL, 1),
+(3, 'LIFESTYLE', 'LIFESTYLE', '2023-10-08 17:36:50', NULL, 1),
+(4, 'POLITICAL', 'POLITICAL', '2023-10-08 17:37:23', NULL, 1),
+(5, 'SPORTS', 'SPORTS', '2023-10-08 17:37:48', NULL, 1),
 (6, 'SPIRITUAL', 'SPIRITUAL', '2022-12-16 11:32:39', NULL, 1),
 (7, 'International', 'Internatinal news', '2023-10-07 17:55:24', '2023-10-08 02:23:52', 0);
 
@@ -132,28 +132,29 @@ CREATE TABLE IF NOT EXISTS `tbluser` (
   `AdminPassword` varchar(255) DEFAULT NULL,
   `AdminEmailId` varchar(255) DEFAULT NULL,
   `userType` int DEFAULT NULL,
-  `preferences` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `preferences` varchar(255) DEFAULT NULL,
   `CreationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `AdminUserName_2` (`AdminUserName`),
   KEY `AdminUserName` (`AdminUserName`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbluser`
 --
 
 INSERT INTO `tbluser` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, `userType`, `preferences`, `CreationDate`, `UpdationDate`) VALUES
-(1, 'admin', 'admin123', '', 1, 'SPORTS,POLITICAL', '2022-12-12 18:30:00', '2023-10-04 10:28:11'),
-(2, 'subin', 'password', '', 0, 'SPORTS,POLITICAL', '2022-12-16 11:32:06', '2023-10-04 10:28:20'),
-(5, 'sbu', 'password', NULL, 0, '', '2023-10-03 14:08:17', '2023-10-03 14:40:43'),
-(6, 'parbati', 'asdsadasd', NULL, 0, '', '2023-10-03 14:11:04', NULL),
-(9, 'saanvi', 'saanvi', NULL, 0, '', '2023-10-03 14:11:53', NULL),
-(14, 'asdasd', 'asdasd', NULL, 0, '', '2023-10-03 14:23:26', NULL),
-(16, 'tttt', 'ugkugjk', NULL, 0, '', '2023-10-03 14:27:25', NULL),
-(18, 'terimakabhosda', 'asdasdsad', NULL, 0, '', '2023-10-03 14:28:09', NULL),
-(20, 'makiaankh', 'sadsad', NULL, 0, '', '2023-10-03 14:28:25', NULL);
+(1, 'admin', 'admin123', '', 1, NULL, '2022-12-12 18:30:00', '2023-10-04 10:28:11'),
+(2, 'subin', 'password', '', 0, 'POLITICAL,SPORTS,SPIRITUAL', '2022-12-16 11:32:06', '2023-10-08 07:37:42'),
+(5, 'sbu', 'password', NULL, 0, NULL, '2023-10-03 14:08:17', '2023-10-03 14:40:43'),
+(6, 'parbati', 'password', NULL, 0, NULL, '2023-10-03 14:11:04', '2023-10-08 04:22:08'),
+(9, 'saanvi', 'saanvi', NULL, 0, NULL, '2023-10-03 14:11:53', NULL),
+(14, 'asdasd', 'asdasd', NULL, 0, NULL, '2023-10-03 14:23:26', NULL),
+(16, 'tttt', 'ugkugjk', NULL, 0, NULL, '2023-10-03 14:27:25', NULL),
+(18, 'terimakabhosda', 'asdasdsad', NULL, 0, NULL, '2023-10-03 14:28:09', NULL),
+(20, 'makiaankh', 'sadsad', NULL, 0, NULL, '2023-10-03 14:28:25', NULL),
+(24, 'test', 'test', NULL, 0, NULL, '2023-10-08 06:59:15', NULL);
 
 --
 -- Constraints for dumped tables
