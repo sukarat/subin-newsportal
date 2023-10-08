@@ -39,13 +39,13 @@ require_once('../includes/connection.php');
         <ul class="utilities">
             <br>
             <!-- <li class="users"><a href="#">My Account</a></li> -->
-            <li class="logout warn"><a href="../../login.php?action=logout">Log Out</a></li>
+            <li class="logout warn"><a href="../login.php?action=logout">Log Out</a></li>
         </ul>
     </header>
 
     <nav role='navigation'>
         <ul class="main">
-            <li class="dashboard"><a href="/admin">Dashboard</a></li>
+            <li class="dashboard"><a href="index.php">Dashboard</a></li>
             <li class="write"><a href="add-category.php">Add Category</a></li>
             <li class="write"><a href="manage-categories.php">Manage Categories</a></li>
             <li class="write"><a href="add-post.php">Write news</a></li>
