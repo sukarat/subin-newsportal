@@ -65,7 +65,6 @@ if (isset($_SESSION['username'])) {
 
                 <ul class="s-header__nav">
                     <li class="current"><a href="/">Home</a></li>
-                    <li><a href="preference.php">Preference</a></li>
                     <li><a href="login.php?action=<?= $loginAction; ?>"><?= $loginText; ?></a></li>
                 </ul> <!-- end #nav -->
 

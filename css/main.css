@@ -740,7 +740,7 @@ select {
     font-family: "Open Sans", sans-serif;
     font-size: 1.422rem;
     line-height: 3.2rem;
-    max-width: 100%;
+    width: 100%;
     background-color: #efefef;
     border: 1px solid transparent;
     -webkit-transition: all .3s ease-in-out;
